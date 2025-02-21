@@ -1,31 +1,32 @@
-name: Fetch Live Channels and Create JSON
+name: Fetch Channels
 
 on:
+  push:
+    branches:
+      - main
   schedule:
-    - cron: '0 * * * *'   # تشغيل كل ساعة (يمكن تعديله حسب الحاجة)
-  workflow_dispatch:
+    - cron: '0 * * * *'  # تشغيل كل ساعة
 
 jobs:
-  fetch-channels:
+  fetch_channels:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4  # تحديث إلى الإصدار الأحدث
+      - name: 🛠️ تحميل المستودع
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4  # تحديث إلى الإصدار الأحدث
+      - name: 🔧 تثبيت Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-       - name: Install dependencies
+      - name: 📦 تثبيت التبعيات
         run: npm install
 
-      - name: Run fetchChannels script
+      - name: 🚀 تشغيل `fetchChannels.js`
         run: node fetchChannels.js
 
-      # ✅ تحديث إلى `actions/upload-artifact@v4` بدلاً من الإصدار القديم
-      - name: Upload channels.json artifact
+      - name: 📤 رفع ملف JSON الناتج
         uses: actions/upload-artifact@v4
         with:
           name: channels-json

@@ -1,0 +1,13 @@
+{
+  "name": "channel-fetcher",
+  "version": "1.0.0",
+  "description": "Fetching live channel information from websites",
+  "main": "fetchChannels.js",
+  "scripts": {
+    "start": "node fetchChannels.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

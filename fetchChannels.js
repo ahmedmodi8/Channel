@@ -62,7 +62,7 @@ async function fetchLiveChannels(url) {
 
 (async () => {
   // قم بتعديل الرابط أدناه للرابط الفعلي الذي يحتوي على القنوات المباشرة
-  const targetUrl = 'https://example.com/live-channels';
+  const targetUrl = 'http://www.elahmad.com/tv/mobile_tv_live/';
   const channels = await fetchLiveChannels(targetUrl);
   
   // كتابة البيانات إلى ملف channels.json مع تنسيق جميل (indentation)
